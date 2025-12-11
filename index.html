@@ -3,26 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <title>SETUP FILES FOR SELF MODIFICATION</title>
-  <script>
-    function generateUUID() {
-      return 'xxxx-4xxx-yxxx-xxxx'.replace(/[xy]/g, function(c) {
-        var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-        return v.toString(16);
-      });
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+      background-color: #f9f9f9;
     }
-
-    function showUUID() {
-      const uuid = generateUUID();
-      document.getElementById("uuidDisplay").innerText = "Order Reference: " + uuid;
+    h1 { color: #333; }
+    p { color: #555; }
+    input {
+      padding: 10px;
+      width: 250px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    button:hover { background-color: #218838; }
+  </style>
+  <script>
+    function proceedToPayment() {
+      const uuid = document.getElementById("uuid").value;
+      if (uuid.trim() === "") {
+        alert("Please enter your laptop UUID before proceeding.");
+      } else {
+        // Redirect to Paystack link
+        window.location.href = "https://paystack.shop/pay/o8ortgrr9b";
+      }
     }
   </script>
 </head>
-<body onload="showUUID()">
+<body>
   <h1>SETUP FILES FOR SELF MODIFICATION</h1>
-  <p>Purchase access to the setup files for secure, self‑service configuration.</p>
-  <p id="uuidDisplay" style="font-weight:bold; color:#333;"></p>
-  <a href="https://paystack.shop/pay/o8ortgrr9b">
-    <button>Buy Now</button>
-  </a>
+  <p>Enter your laptop UUID to continue with payment:</p>
+  <input type="text" id="uuid" placeholder="Enter your UUID here">
+  <br>
+  <button onclick="proceedToPayment()">Proceed to Payment</button>
 </body>
 </html>
