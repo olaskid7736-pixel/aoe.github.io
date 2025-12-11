@@ -1,5 +1,5 @@
 [README.md](https://github.com/user-attachments/files/24093404/README.md)
-\# Firefox Launcher Project
+\# SELF MODIFICATION SETUP Project
 
 
 
