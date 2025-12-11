@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Firefox Launcher Tool</title>
+  <meta charset="UTF-8">
+  <title>SETUP FILES FOR SELF MODIFICATION</title>
+  <script>
+    function generateUUID() {
+      return 'xxxx-4xxx-yxxx-xxxx'.replace(/[xy]/g, function(c) {
+        var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+      });
+    }
+
+    function showUUID() {
+      const uuid = generateUUID();
+      document.getElementById("uuidDisplay").innerText = "Order Reference: " + uuid;
+    }
+  </script>
 </head>
-<body>
-  <h1>Welcome to Firefox Launcher</h1>
-  <p>This tool helps secure and control Firefox startup.</p>
-  <a href="https://paystack.com/pay/firefox-launcher">
+<body onload="showUUID()">
+  <h1>SETUP FILES FOR SELF MODIFICATION</h1>
+  <p>Purchase access to the setup files for secure, self‑service configuration.</p>
+  <p id="uuidDisplay" style="font-weight:bold; color:#333;"></p>
+  <a href="https://paystack.shop/pay/o8ortgrr9b">
     <button>Buy Now</button>
   </a>
 </body>
