@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>SETUP FILES FOR SELF SERVICE APPLE ID</title>
+  <title>SETUP FILES FOR SELF SERVICE DEVICE SETUP</title>
   <style>
     body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; background-color: #f9f9f9; }
     h1 { color: #333; }
@@ -25,7 +25,7 @@
   </script>
 </head>
 <body>
-  <h1>SETUP FILES FOR SELF SERVICE APPLE ID</h1>
+  <h1>SETUP FILES FOR SELF SERVICE DEVICE SETUP</h1>
   <p>Enter your laptop UUID to continue with payment:</p>
   <input type="text" id="uuid" placeholder="Enter your UUID here">
   <br>
@@ -35,11 +35,12 @@
     <h3>How to Find Your Laptop UUID</h3>
     <p><strong>On Windows:</strong></p>
     <ol>
-      <li>Press <code>Windows Key + R</code> → type <code>cmd</code> → Enter.</li>
-      <li>Type: <code>wmic csproduct get uuid</code></li>
+      <li>Run Powershell as Admin.</li>
+      <li>Type: <code>Get-WmiObject Win32_ComputerSystemProduct | Select-Object -ExpandProperty UUID
+</code></li>
       <li>Your laptop’s UUID will be displayed.</li>
     </ol>
-
+    </ol>
     <p><strong>On macOS:</strong></p>
     <ol>
       <li>Apple menu → About This Mac → System Report.</li>
