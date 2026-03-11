@@ -8,10 +8,17 @@
       font-family: Arial, sans-serif;
       text-align: center;
       margin-top: 50px;
-      background-color: #f9f9f9;
+      background: linear-gradient(135deg, #f9f9f9, #e0f7fa);
+      overflow: hidden;
     }
-    h1 { color: #333; }
-    p { color: #555; }
+    h1 {
+      color: #333;
+      animation: fadeInDown 1.5s ease;
+    }
+    p {
+      color: #555;
+      animation: fadeInUp 2s ease;
+    }
     a.download-btn {
       display: inline-block;
       background-color: #007bff;
@@ -21,18 +28,60 @@
       font-size: 16px;
       border-radius: 5px;
       margin-top: 20px;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      animation: pulse 2s infinite;
     }
     a.download-btn:hover {
       background-color: #0056b3;
+      transform: scale(1.1);
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    /* Confetti */
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: red;
+      opacity: 0.7;
+      animation: fall 3s linear forwards;
+    }
+    @keyframes fall {
+      to { transform: translateY(100vh) rotate(360deg); opacity: 0; }
     }
   </style>
 </head>
 <body>
-  <h1>Thank You for Your Purchase!</h1>
+  <h1>🎉 Thank You for Your Purchase!</h1>
   <p>Your payment was successful. Click below to download your setup files:</p>
 
-  <!-- ✅ This button downloads the zip file -->
   <a href="setup-file.zip" class="download-btn">Download Setup File</a>
 
+  <script>
+    // Confetti sprinkle effect
+    function createConfetti() {
+      const confetti = document.createElement('div');
+      confetti.className = 'confetti';
+      confetti.style.left = Math.random() * window.innerWidth + 'px';
+      confetti.style.backgroundColor = ['#ff0','#0f0','#00f','#f0f','#0ff','#f00'][Math.floor(Math.random()*6)];
+      document.body.appendChild(confetti);
+      setTimeout(() => confetti.remove(), 3000);
+    }
+    setInterval(createConfetti, 200);
+  </script>
 </body>
 </html>
